@@ -14,4 +14,11 @@ VOLUME /data
 
 EXPOSE 8090
 
+ENV JAVA_OPTS -Xms512m -Xmx2g -Djava.awt.headless=true
+
+# Prime the cache and temp dirs as much as possible
+RUN /opt/confluence/bin/start-confluence.sh \
+ && sleep 10 \
+ && curl http://localhost:8090/
+
 CMD ["bin/start-confluence.sh", "-fg"]
