@@ -1,4 +1,4 @@
-FROM goodguide/base-oracle-java-7
+FROM goodguide/base-oracle-java:7
 
 RUN mkdir /opt/confluence \
  && cd /opt/confluence \
